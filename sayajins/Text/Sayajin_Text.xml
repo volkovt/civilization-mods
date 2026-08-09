@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+    <Language_en_US>
+        <Row Tag="TXT_KEY_CIV_SAYAJIN_DESC">
+            <Text>Império Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CIV_SAYAJIN_SHORT_DESC">
+            <Text>Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CIV_SAYAJIN_ADJECTIVE">
+            <Text>Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CIV_SAYAJIN_STRATEGY">
+            <Text>Os Sayajins transformam qualquer terreno trabalhado em fonte de crescimento, poder e guerra. Sua habilidade única concede +1 de [ICON_FOOD] Comida, +1 de [ICON_PRODUCTION] Produção, +1 de [ICON_CULTURE] Cultura e +1 de [ICON_PEACE] Fé em todos os terrenos presentes no mapa. O império conta ainda com cinco heróis exclusivos liberados em [COLOR_POSITIVE_TEXT]Trabalho em Bronze[ENDCOLOR]: Vegeta e Broly lutam corpo a corpo, enquanto Goku, Gohan e Piccolo atacam à distância. Cada personagem possui modelo próprio, Zenkai quando ferido, uma única unidade viva e sete transformações automáticas, culminando em formas finais com mobilidade e ataques adicionais.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CIV5_SAYAJIN_TEXT">
+            <Text>Antes de dominarem o Planeta Vegeta, os Sayajins pertenciam ao planeta Sadala. Mais tarde, a raça guerreira ascendeu sob o nome de Vegeta, até quase ser exterminada com a destruição do planeta. Nesta adaptação para Civilization V, o Império Sayajin representa orgulho, disciplina marcial e evolução pela adversidade: quanto mais cruel o mundo, mais fortes se tornam seus guerreiros.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CIV5_DOM_SAYAJIN_TEXT">
+            <Text>Príncipe Vegeta, herdeiro do trono Sayajin, seu povo prospera onde qualquer outro império hesitaria. Restaure o orgulho de sua raça, domine todos os terrenos da Terra e faça o nome dos Sayajins ser temido novamente.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_LEADER_VEGETA">
+            <Text>Príncipe Vegeta</Text>
+        </Row>
+        <Row Tag="TXT_KEY_LEADER_VEGETA_PEDIA">
+            <Text>Príncipe dos Sayajins e filho do Rei Vegeta, Vegeta lidera com orgulho absoluto, disciplina de elite e uma determinação incansável de superar qualquer rival.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_VEGETA">
+            <Text>Nesta versão do mod, Vegeta é apresentado como um líder ofensivo, orgulhoso e intensamente competitivo. Ele favorece produção sólida, pressão desde o início e o uso de ambientes hostis como campos de prova para a supremacia Sayajin.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_TRAIT_SAYAJIN_PRIDE">
+            <Text>Orgulho Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_TRAIT_SAYAJIN_PRIDE_SHORT">
+            <Text>Orgulho Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_BUILDING_SAYAJIN_HIDDEN_TRAIT">
+            <Text>Orgulho Sayajin (Oculto)</Text>
+        </Row>
+        <Row Tag="TXT_KEY_BUILDING_SAYAJIN_HIDDEN_TRAIT_HELP">
+            <Text>Construção técnica oculta utilizada para aplicar a habilidade única da civilização Sayajin.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_BUILDING_SAYAJIN_HIDDEN_TRAIT_PEDIA">
+            <Text>Esta construção invisível existe apenas para implementar a habilidade única dos Sayajins por meio da lógica de banco de dados do Civilization V. Ela não deve aparecer ao jogador durante a jogabilidade normal.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_BUILDING_SAYAJIN_MONUMENT">
+            <Text>Monumento Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_BUILDING_SAYAJIN_MONUMENT_HELP">
+            <Text>Substitui o Monumento. Fornece a Cultura normal do Monumento, +1 de [ICON_PEACE] Fé e, ao existir pelo menos um Monumento Sayajin no império, ativa +25% de velocidade de Worker para todo o império sem acumular por cidade.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_BUILDING_SAYAJIN_MONUMENT_STRATEGY">
+            <Text>O Monumento Sayajin fortalece a expansão cultural e religiosa logo no início do jogo. Seu primeiro exemplar ativa o bônus imperial de +25% de velocidade de Worker; monumentos adicionais ampliam sua infraestrutura cultural, mas não acumulam esse bônus de construção.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_BUILDING_SAYAJIN_MONUMENT_PEDIA">
+            <Text>Erguido para celebrar conquistas, linhagens de elite e o orgulho guerreiro do povo Sayajin, este monumento preserva a cultura e a fé do império enquanto marca o início de uma expansão territorial organizada, rápida e implacável.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_BUILDING_SAYAJIN_MONUMENT_EMPIRE">
+            <Text>Núcleo Imperial do Monumento Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_BUILDING_SAYAJIN_MONUMENT_EMPIRE_HELP">
+            <Text>Construção técnica oculta usada para aplicar uma única vez o bônus imperial de +25% de velocidade de Worker quando o império possui pelo menos um Monumento Sayajin.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_BUILDING_SAYAJIN_MONUMENT_EMPIRE_PEDIA">
+            <Text>Esta construção invisível existe apenas para sustentar a implementação técnica do bônus imperial não cumulativo do Monumento Sayajin.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO">
+            <Text>Príncipe Vegeta</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_HELP">
+            <Text>Herói terrestre de combate corpo a corpo exclusivo dos Sayajins. Move-se em 6 lotes, rompe linhas inimigas e recebe bônus ao atacar cidades. Apenas 1 Príncipe Vegeta pode permanecer vivo por vez. Evolui automaticamente com cada Era.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_PEDIA">
+            <Text>Vegeta é o herdeiro do trono Sayajin e o executor direto do orgulho imperial. Nesta versão do mod, ele representa o herói terrestre de assalto: forte no combate direto, ideal para romper linhas inimigas, proteger heróis mais frágeis e liderar a expansão do império em terra.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOKU">
+            <Text>Goku</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOKU_HELP">
+            <Text>Herói terrestre de ataque à distância exclusivo dos Sayajins. Move-se em 3 lotes e dispara o Kamehameha a até 4 lotes, ignorando linha de visão. Apenas 1 Goku pode permanecer vivo por vez. Evolui automaticamente com cada Era.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOKU_PEDIA">
+            <Text>Goku é o herói de fogo de apoio e precisão. O Kamehameha animado atravessa obstáculos, pressiona cidades e recupera energia ao destruir inimigos, abrindo espaço para o restante da formação avançar.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_PICCOLO">
+            <Text>Piccolo</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_PICCOLO_HELP">
+            <Text>Herói marítimo de artilharia exclusivo dos Sayajins. Move-se em 6 lotes e dispara o Makankosappo a até 5 lotes, ignorando linha de visão. Apenas 1 Piccolo pode permanecer vivo por vez. Evolui automaticamente com cada Era.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_PICCOLO_PEDIA">
+            <Text>Piccolo projeta força sobre o litoral, domina mares estreitos e escolta a expansão costeira. Sua defesa elevada e o Makankosappo animado fazem dele a peça de cobertura mais resistente da formação.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOHAN">
+            <Text>Gohan</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOHAN_HELP">
+            <Text>Herói terrestre de ataque à distância exclusivo dos Sayajins. Move-se em 5 lotes, dispara o Masenko a 2 lotes sem precisar de linha de visão e fica mais perigoso quando ferido. Apenas 1 Gohan pode permanecer vivo por vez. Evolui automaticamente com cada Era.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOHAN_PEDIA">
+            <Text>Gohan atua como artilharia terrestre móvel, com foco em apoio ofensivo, avanço seguro e evolução explosiva nas Eras posteriores. Ele começa menos bruto que Vegeta, mas sua progressão representa o despertar constante de seu potencial oculto.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_BROWLY">
+            <Text>Broly</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_BROWLY_HELP">
+            <Text>Colosso marítimo de combate corpo a corpo exclusivo dos Sayajins. Move-se em 7 lotes, rompe bloqueios, recebe bônus contra cidades e pode atacar repetidamente. Apenas 1 Broly pode permanecer vivo por vez. Evolui automaticamente com cada Era.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_BROWLY_PEDIA">
+            <Text>Broly avança diretamente sobre frotas inimigas, rompe bloqueios e protege a expansão costeira com força bruta. Sua animação de impacto e a capacidade de atacar mais de uma vez transformam sua fúria em pressão contínua.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_HERO_NAME_VEGETA">
+            <Text>Príncipe Vegeta</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_HERO_NAME_GOKU">
+            <Text>Goku</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_HERO_NAME_PICCOLO">
+            <Text>Piccolo</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_HERO_NAME_GOHAN">
+            <Text>Gohan</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_HERO_NAME_BROWLY">
+            <Text>Broly</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_HERO_MARK">
+            <Text>Marca de Herói Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_HERO_MARK_HELP">
+            <Text>Marca técnica aplicada aos cinco heróis exclusivos da civilização Sayajin.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_ANCIENT">
+            <Text>Forma Desperta</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_ANCIENT_HELP">
+            <Text>Escala base dos heróis Sayajin na Era Antiga. Multiplicador aproximado: 1,00x.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_CLASSICAL">
+            <Text>Ascensão de Batalha</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_CLASSICAL_HELP">
+            <Text>Escala dos heróis Sayajin na Era Clássica. Multiplicador aproximado: 1,50x.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_MEDIEVAL">
+            <Text>Fúria Controlada</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_MEDIEVAL_HELP">
+            <Text>Escala dos heróis Sayajin na Era Medieval. Multiplicador aproximado: 2,25x.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_RENAISSANCE">
+            <Text>Orgulho Imperial</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_RENAISSANCE_HELP">
+            <Text>Escala dos heróis Sayajin na Era do Renascimento. Multiplicador aproximado: 3,38x.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_INDUSTRIAL">
+            <Text>Poder de Elite</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_INDUSTRIAL_HELP">
+            <Text>Escala dos heróis Sayajin na Era Industrial. Multiplicador aproximado: 5,06x.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_MODERN">
+            <Text>Pressão Absoluta</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_MODERN_HELP">
+            <Text>Escala dos heróis Sayajin na Era Moderna. Multiplicador aproximado: 7,59x.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_POSTMODERN">
+            <Text>Transcendência Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_POSTMODERN_HELP">
+            <Text>Escala dos heróis Sayajin na Era Pós-Moderna. Multiplicador aproximado: 11,39x.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_FUTURE">
+            <Text>Lenda Viva Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ERA_FUTURE_HELP">
+            <Text>Escala dos heróis Sayajin na Era Futura. Multiplicador aproximado: 17,09x.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_LEADER_VEGETA_FIRSTGREETING_1">
+            <Text>Eu sou Vegeta, príncipe de todos os Sayajins. Fale depressa e prove que merece meu tempo.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_LEADER_VEGETA_FIRSTGREETING_2">
+            <Text>Grave isto em sua memória: você está diante de Vegeta, herdeiro do trono Sayajin.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_LEADER_VEGETA_DEFEATED_1">
+            <Text>Esta derrota é uma humilhação... mas nunca confunda uma queda com rendição. O orgulho Sayajin não morre.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_LEADER_VEGETA_DEFEATED_2">
+            <Text>Você venceu esta batalha. Ainda assim, o nome de Vegeta permanecerá acima do seu.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_1">
+            <Text>Planeta Vegeta</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_2">
+            <Text>Sadala</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_3">
+            <Text>Castelo Vegeta</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_4">
+            <Text>Distrito Real</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_5">
+            <Text>Rei Vegeta</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_6">
+            <Text>Príncipe Vegeta</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_7">
+            <Text>Bardock</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_8">
+            <Text>Gine</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_9">
+            <Text>Raditz</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_10">
+            <Text>Nappa</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_11">
+            <Text>Tarble</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_12">
+            <Text>Paragus</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_13">
+            <Text>Broly</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_14">
+            <Text>Leek</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_15">
+            <Text>Beets</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_16">
+            <Text>Tora</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_17">
+            <Text>Fasha</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_18">
+            <Text>Borgos</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_19">
+            <Text>Shugesh</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_20">
+            <Text>Cabba</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_21">
+            <Text>Caulifla</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_22">
+            <Text>Kale</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_23">
+            <Text>Renso</Text>
+        </Row>
+        <Row Tag="TXT_KEY_CITY_NAME_SAYAJIN_24">
+            <Text>Yamoshi</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SPY_NAME_SAYAJIN_0">
+            <Text>Bardock</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SPY_NAME_SAYAJIN_1">
+            <Text>Gine</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SPY_NAME_SAYAJIN_2">
+            <Text>Tarble</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SPY_NAME_SAYAJIN_3">
+            <Text>Raditz</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SPY_NAME_SAYAJIN_4">
+            <Text>Nappa</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SPY_NAME_SAYAJIN_5">
+            <Text>Paragus</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SPY_NAME_SAYAJIN_6">
+            <Text>Cabba</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SPY_NAME_SAYAJIN_7">
+            <Text>Caulifla</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SPY_NAME_SAYAJIN_8">
+            <Text>Kale</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SPY_NAME_SAYAJIN_9">
+            <Text>Broly</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SPY_NAME_SAYAJIN_10">
+            <Text>Leek</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SPY_NAME_SAYAJIN_11">
+            <Text>Yamoshi</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_VEGETA_CLASSICAL">
+            <Text>Vegeta Oozaru</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_VEGETA_MEDIEVAL">
+            <Text>Vegeta Super Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_VEGETA_RENAISSANCE">
+            <Text>Super Vegeta</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_VEGETA_INDUSTRIAL">
+            <Text>Majin Vegeta</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_VEGETA_MODERN">
+            <Text>Vegeta Deus Super Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_VEGETA_POSTMODERN">
+            <Text>Vegeta Super Sayajin Blue</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_VEGETA_FUTURE">
+            <Text>Vegeta Ultra Ego</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOKU_CLASSICAL">
+            <Text>Goku Kaioken</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOKU_MEDIEVAL">
+            <Text>Goku Super Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOKU_RENAISSANCE">
+            <Text>Goku Super Sayajin 2</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOKU_INDUSTRIAL">
+            <Text>Goku Super Sayajin 3</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOKU_MODERN">
+            <Text>Goku Deus Super Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOKU_POSTMODERN">
+            <Text>Goku Super Sayajin Blue</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOKU_FUTURE">
+            <Text>Goku Instinto Superior</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_PICCOLO_CLASSICAL">
+            <Text>Piccolo Guerreiro Namekuseijin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_PICCOLO_MEDIEVAL">
+            <Text>Piccolo Fundido com Nail</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_PICCOLO_RENAISSANCE">
+            <Text>Piccolo Fundido com Kami</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_PICCOLO_INDUSTRIAL">
+            <Text>Piccolo Desperto</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_PICCOLO_MODERN">
+            <Text>Piccolo Potencial Liberado</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_PICCOLO_POSTMODERN">
+            <Text>Orange Piccolo</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_PICCOLO_FUTURE">
+            <Text>Piccolo Guardião Divino</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOHAN_CLASSICAL">
+            <Text>Gohan Discípulo de Piccolo</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOHAN_MEDIEVAL">
+            <Text>Gohan Super Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOHAN_RENAISSANCE">
+            <Text>Gohan Super Sayajin 2</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOHAN_INDUSTRIAL">
+            <Text>Gohan Místico</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOHAN_MODERN">
+            <Text>Gohan Potencial Liberado</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOHAN_POSTMODERN">
+            <Text>Gohan Supremo</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOHAN_FUTURE">
+            <Text>Gohan Beast</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_BROWLY_CLASSICAL">
+            <Text>Broly Fúria Primordial</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_BROWLY_MEDIEVAL">
+            <Text>Broly Ikari</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_BROWLY_RENAISSANCE">
+            <Text>Broly Super Sayajin</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_BROWLY_INDUSTRIAL">
+            <Text>Broly Lendário</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_BROWLY_MODERN">
+            <Text>Broly Poder Máximo</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_BROWLY_POSTMODERN">
+            <Text>Broly Berserker do Mar</Text>
+        </Row>
+        <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_BROWLY_FUTURE">
+            <Text>Broly Deus da Guerra do Mar</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ZENKAI">
+            <Text>Zenkai</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ZENKAI_HELP">
+            <Text>Recupera-se em qualquer território e recebe +25% de ataque contra unidades feridas.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ATTACK_VEGETA">
+            <Text>Galick Gun</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ATTACK_VEGETA_HELP">
+            <Text>Investida corpo a corpo: +10% no ataque e +25% contra cidades.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ATTACK_GOKU">
+            <Text>Kamehameha</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ATTACK_GOKU_HELP">
+            <Text>Golpe de ki animado: +1 de alcance, ignora linha de visão e cura ao destruir um inimigo.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ATTACK_GOHAN">
+            <Text>Masenko</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ATTACK_GOHAN_HELP">
+            <Text>Golpe de ki animado: +20% de ataque à distância e +15% no combate ofensivo.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ATTACK_PICCOLO">
+            <Text>Makankosappo</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ATTACK_PICCOLO_HELP">
+            <Text>Golpe de ki animado: +1 de alcance, ignora linha de visão e concede +15% de defesa.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ATTACK_BROLY">
+            <Text>Eraser Cannon</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ATTACK_BROLY_HELP">
+            <Text>Investida naval corpo a corpo: +20% no ataque, +30% contra cidades, cura ao destruir e ataques múltiplos.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_TRANSCENDENT_AURA">
+            <Text>Aura Transcendente</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_TRANSCENDENT_AURA_HELP">
+            <Text>Nas formas Pós-Modernas: +20% de força, +1 de movimento e pode agir após atacar.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_FINAL_FORM">
+            <Text>Forma Final</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_FINAL_FORM_HELP">
+            <Text>Na Era Futura: +25% de força, +1 de movimento, ignora zonas de controle e ganha um ataque adicional.</Text>
+        </Row>
+    </Language_en_US>
+</GameData>

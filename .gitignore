@@ -1,0 +1,62 @@
+# ModBuddy / Civilization V build outputs
+/Build/
+/Packages/
+*.civ5mod
+*.modinfo
+
+# Local validation and temporary workspaces
+/tmp/
+/sayajins/BuildValidation/
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Visual Studio / ModBuddy user state
+.vs/
+*.suo
+*.civ5suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+bin/
+obj/
+
+# Python caches and test artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# Downloaded third-party toolchains (not project source)
+/sayajins/Tools/blender-portable/
+/sayajins/Tools/blender-2.79-portable/
+/sayajins/Tools/blender-2.79b-windows64.zip
+/sayajins/Tools/Civilization-Blender-Scripts-*.zip
+/sayajins/Tools/Civilization-Blender-Scripts-*/
+/sayajins/Tools/fbx*_converter*_win_*.exe
+/sayajins/Tools/granny-inspector/
+
+# Rebuildable 3D export intermediates; keep .blend sources and final .gr2 files
+/sayajins/ART/Units/*/Source/*.fbx
+/sayajins/ART/Units/*/Source/*.br2
+*.blend1
+
+# Temporary folders created with malformed/non-ASCII names by old art scripts
+/[!A-Za-z0-9._-]*/
+/sayajins/[!A-Za-z0-9._-]*/
+
+# Generic editor and operating-system noise
+*.tmp
+*.temp
+*.bak
+*.log
+*.orig
+*.swp
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
