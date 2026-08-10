@@ -17,10 +17,7 @@
   <Animation file="Infantry_Run.gr2" ec="1400" />
   <Animation file="Infantry_Stop_Run.gr2" ec="1440" />
   <Animation file="Infantry_Charge_Run.gr2" ec="1120" />
-  <Animation file="Infantry_Charge_Attack.gr2" ec="1140" />
-  <Animation file="Infantry_AttackA.gr2" ec="1100" />
-  <Animation file="Infantry_AttackB.gr2" ec="2100" />
-  <Animation file="Infantry_Attack_City.gr2" ec="1160, 1180" />
+  <Animation file="Infantry_Attack_City.gr2" ec="1100, 1140, 1160, 1180, 2100" />
   <Animation file="Infantry_Victory.gr2" ec="1800" />
   <Animation file="Infantry_Bombard_Defense.gr2" ec="1280" />
   <Animation file="Infantry_Bombard_Defense_Idle.gr2" ec="1285" />
@@ -61,8 +58,9 @@
   <AnimGraph file="ATTACK_CITY_TO_RUN_CHARGE_SHUFFLE.dge" />
   <AnimGraph file="START_RUN_CHARGE_SHUFFLE.dge" />
   <AnimGraph file="SHUFFLE_STOP_GRAPH.dge" />
-  <TimedTrigger file="FX_Triggers_Infantry.ftsxml" />
+  <TimedTrigger file="FX_Triggers_Sayajin_Ranged.ftsxml" />
   <BoneUsage>
+    <Bone name="Base HumanRPalm" />
     <Bone name="gun_bone" />
     <Bone name="Base HumanSpine1" />
     <Bone name="Base HumanSpine2" />

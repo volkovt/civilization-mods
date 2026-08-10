@@ -8,6 +8,7 @@ writes legacy DX9 BC3/DXT5 DDS files with a complete mip chain for Civ V.
 
 from __future__ import annotations
 
+import argparse
 import shutil
 import subprocess
 import sys
@@ -111,10 +112,14 @@ def convert_to_dds(texconv: Path, png: Path) -> Path:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--hero", choices=tuple(HEROES), help="Rebuild only one hero atlas family.")
+    args = parser.parse_args()
     texconv = find_texconv()
     built: list[Path] = []
+    selected_heroes = {args.hero: HEROES[args.hero]} if args.hero else HEROES
 
-    for hero, atlas_name in HEROES.items():
+    for hero, atlas_name in selected_heroes.items():
         source = SOURCE_DIR / f"{hero}_source.png"
         if not source.is_file():
             raise FileNotFoundError(f"Fonte ausente: {source}")

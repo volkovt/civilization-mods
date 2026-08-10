@@ -44,7 +44,7 @@ def parse_project(project_path: Path, mod_root: Path) -> None:
         value = root.findtext(f"m:PropertyGroup/m:{name}", default="", namespaces=NS)
         return value.strip()
 
-    require(property_text("ModVersion") == "8", "Project must package ModVersion 8.")
+    require(property_text("ModVersion") == "11", "Project must package ModVersion 11.")
     require(property_text("ReloadUnitSystem").lower() == "true", "ReloadUnitSystem must remain enabled for custom animated units.")
     require(property_text("SupportsSinglePlayer").lower() == "true", "Single-player support is disabled.")
     require(property_text("SupportsMultiplayer").lower() == "false", "Gameplay Lua is not network-synchronized; multiplayer must not be advertised.")
@@ -70,12 +70,16 @@ def parse_project(project_path: Path, mod_root: Path) -> None:
         "Lua/Sayajin_Utils.lua",
         "Lua/Sayajin_HeroService.lua",
         "Lua/Sayajin_MonumentService.lua",
+        "Lua/Sayajin_NuclearService.lua",
     ]
     for relative in required_vfs:
         require(project_files.get(relative) is True, f"Lua dependency is absent from VFS: {relative}")
     require(project_files.get("Lua/Sayajin_HeroControl.lua") is False, "The InGameUIAddin entry point must not be imported into VFS.")
 
-    print(f"PROJECT_AUDIT_OK version=8 files={len(project_files)} multiplayer=false")
+    print(
+        f"PROJECT_AUDIT_OK version={property_text('ModVersion')} "
+        f"files={len(project_files)} multiplayer=false"
+    )
 
 
 def audit_localization(mod_root: Path) -> None:
@@ -117,6 +121,7 @@ def audit_lua(mod_root: Path) -> tuple[float, int, int]:
     utils = (mod_root / "Lua" / "Sayajin_Utils.lua").read_text(encoding="utf-8-sig")
     heroes = (mod_root / "Lua" / "Sayajin_HeroService.lua").read_text(encoding="utf-8-sig")
     monuments = (mod_root / "Lua" / "Sayajin_MonumentService.lua").read_text(encoding="utf-8-sig")
+    nuclear = (mod_root / "Lua" / "Sayajin_NuclearService.lua").read_text(encoding="utf-8-sig")
     control = (mod_root / "Lua" / "Sayajin_HeroControl.lua").read_text(encoding="utf-8-sig")
 
     require("Config.Debug = false" in config, "Release debug logging is still enabled.")
@@ -127,6 +132,12 @@ def audit_lua(mod_root: Path) -> tuple[float, int, int]:
     require("ApplyHeroFormPromotions(pUnit, iEra)" in heroes, "Form-exclusive promotion normalization is missing.")
     require("SafeCall(\"Hero service\"" in control and "SafeCall(\"Monument service\"" in control, "Subsystem error isolation is missing.")
     require(monuments.count("for pCity in pPlayer:Cities() do") == 1, "Monument synchronization performs more than one full city scan.")
+    require('include("Sayajin_NuclearService.lua")' in control, "Nuclear service is not loaded by the entry point.")
+    require("applyingEffect" in nuclear and "pcall(function()" in nuclear, "Nuclear damage is not protected against re-entrancy or runtime errors.")
+    require("Events.RunCombatSim.Add" in nuclear and "Events.EndCombatSim.Add" in nuclear, "Nuclear attacks are not tied to completed combat simulations.")
+    require("Map.GetPlot(defenderX, defenderY)" in nuclear, "Nuclear attacks do not use the combat event's authoritative target coordinates.")
+    require("pCity:ChangeDamage(appliedDamage)" in nuclear and "pUnit:ChangeDamage(damage, context.attackerPlayerID)" in nuclear, "Nuclear unit/city damage is incomplete.")
+    require("maxHitPoints - currentDamage - 1" in nuclear, "Nuclear splash can bypass native city conquest rules.")
     require('include("Lua/' not in control, "Lua includes use physical paths instead of VFS basenames.")
 
     scale_match = re.search(r"Config\.HeroEraScale\s*=\s*([0-9.]+)", config)
@@ -211,6 +222,15 @@ def audit_database(database: Path) -> None:
     require(cursor.execute("SELECT COUNT(*) FROM Units WHERE Type LIKE 'UNIT_SAYAJIN_HERO%' AND Domain='DOMAIN_SEA' AND MinAreaSize<>1").fetchone()[0] == 0, "A naval hero can be blocked by minimum water-area size.")
     require(cursor.execute("SELECT COUNT(*) FROM Units WHERE Type LIKE 'UNIT_SAYAJIN_HERO%' AND Domain='DOMAIN_LAND' AND MoveRate<>'BIPED'").fetchone()[0] == 0, "A land hero has a naval movement profile.")
     require(cursor.execute("SELECT COUNT(*) FROM Units WHERE Type LIKE 'UNIT_SAYAJIN_HERO%' AND Domain='DOMAIN_SEA' AND MoveRate<>'BOAT'").fetchone()[0] == 0, "A naval hero has a land movement profile.")
+    require(cursor.execute("SELECT COUNT(*) FROM Units WHERE Type LIKE 'UNIT_SAYAJIN_HERO%' AND NukeDamageLevel>=0").fetchone()[0] == 0, "A hero was converted into an unsafe native nuclear/suicide unit.")
+    require(cursor.execute("SELECT COUNT(*) FROM ArtDefine_UnitInfos WHERE Type LIKE 'ART_DEF_UNIT_SAYAJIN_%'").fetchone()[0] == 40, "Transformation art infos are incomplete.")
+    require(cursor.execute("SELECT COUNT(*) FROM ArtDefine_UnitMemberInfos WHERE Type LIKE 'ART_DEF_UNIT_MEMBER_SAYAJIN_%'").fetchone()[0] == 40, "Transformation member models are incomplete.")
+    require(cursor.execute("SELECT COUNT(*) FROM Units u LEFT JOIN ArtDefine_UnitInfos a ON a.Type=u.UnitArtInfo WHERE u.Type LIKE 'UNIT_SAYAJIN_HERO%' AND a.Type IS NULL").fetchone()[0] == 0, "A hero transformation references missing art.")
+    require(cursor.execute("SELECT COUNT(*) FROM ArtDefine_UnitMemberCombatWeapons WHERE UnitMemberType LIKE 'ART_DEF_UNIT_MEMBER_SAYAJIN_%_POSTMODERN' AND [Index]=0 AND HitEffect='ART_DEF_VEFFECT_NUCLEAR_BOMB_01'").fetchone()[0] == 2, "Melee atomic impact VFX are incomplete.")
+    require(cursor.execute("SELECT COUNT(*) FROM ArtDefine_UnitMemberCombatWeapons WHERE UnitMemberType LIKE 'ART_DEF_UNIT_MEMBER_SAYAJIN_%_FUTURE' AND [Index]=0 AND HitEffect='ART_DEF_VEFFECT_NUCLEAR_BOMB_01'").fetchone()[0] == 2, "Melee nuclear-missile impact VFX are incomplete.")
+    require(cursor.execute("SELECT COUNT(*) FROM ArtDefine_UnitMemberCombatWeapons WHERE (UnitMemberType LIKE 'ART_DEF_UNIT_MEMBER_SAYAJIN_%_POSTMODERN' OR UnitMemberType LIKE 'ART_DEF_UNIT_MEMBER_SAYAJIN_%_FUTURE') AND [Index]=0 AND (UnitMemberType LIKE '%_GOKU_%' OR UnitMemberType LIKE '%_GOHAN_%' OR UnitMemberType LIKE '%_PICCOLO_%') AND ID='ART_DEF_VEFFECT_TRAIL_RAILGUN_PROJ' AND ProjectileSpeed>0 AND COALESCE(HitEffect,'')='' AND WaitForEffectCompletion=0 AND TargetGround=0").fetchone()[0] == 6, "A ranged late-form trigger carrier is invalid.")
+    require(cursor.execute("SELECT COUNT(*) FROM UnitPromotions WHERE Type='PROMOTION_SAYAJIN_ATTACK_BROLY' AND (Blitz<>0 OR ExtraAttacks<>0)").fetchone()[0] == 0, "Broly's signature promotion grants unintended extra attacks.")
+    require(cursor.execute("SELECT COUNT(DISTINCT fp.UnitType) FROM Unit_FreePromotions fp JOIN UnitPromotions p ON p.Type=fp.PromotionType WHERE (fp.UnitType='UNIT_SAYAJIN_HERO_BROWLY' OR fp.UnitType LIKE 'UNIT_SAYAJIN_HERO_BROWLY_%') AND fp.UnitType NOT LIKE '%_FUTURE' AND (p.Blitz<>0 OR p.ExtraAttacks<>0)").fetchone()[0] == 0, "A non-final Broly form can attack more than once per turn.")
 
     class_counts = cursor.execute(
         "SELECT Class,COUNT(*) n FROM Units WHERE Type='UNIT_SAYAJIN_HERO' OR Type LIKE 'UNIT_SAYAJIN_HERO_%' GROUP BY Class ORDER BY Class"

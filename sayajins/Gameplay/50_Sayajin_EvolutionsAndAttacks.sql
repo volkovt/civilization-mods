@@ -1,7 +1,8 @@
 -- ==========================================================================
 -- SAYAJINS: signature attacks and meaningful late-era evolutions
--- Ranged combat uses the AttackB animation and the ki projectile configured
--- in 40_Sayajin_ArtDefines.sql. Physical combat uses AttackA.
+-- Ranged combat uses AttackB and the ki projectile through the Modern era.
+-- The last two forms use native atomic/nuclear impact VFX instead. Physical
+-- combat uses AttackA and receives the same late-form impact treatment.
 -- ==========================================================================
 
 INSERT INTO UnitPromotions
@@ -37,7 +38,7 @@ VALUES  ('PROMOTION_SAYAJIN_ATTACK_VEGETA',
         ('PROMOTION_SAYAJIN_ATTACK_BROLY',
          'TXT_KEY_PROMOTION_SAYAJIN_ATTACK_BROLY', 'TXT_KEY_PROMOTION_SAYAJIN_ATTACK_BROLY_HELP', 'AS2D_IF_LEVELUP',
          1, 0, 44, 'PROMOTION_ATLAS', 'PEDIA_ATTRIBUTES', 'TXT_KEY_PROMOTION_SAYAJIN_ATTACK_BROLY',
-         0, 30, 0, 0, 20, 0, 15, 1);
+         0, 30, 0, 0, 20, 0, 15, 0);
 
 INSERT INTO UnitPromotions
         (Type, Description, Help, Sound, CannotBeChosen, LostWithUpgrade,

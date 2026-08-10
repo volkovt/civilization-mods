@@ -36,6 +36,78 @@ def main() -> None:
         imported = (content.findtext("m:ImportIntoVFS", "False", MSBUILD_NS).lower() == "true")
         project_files[relative.name.lower()] = (mod_root / relative, imported)
 
+    attack_events = {"1100", "1140", "1160", "1180", "2100"}
+    trigger_specs = {
+        "FX_Triggers_Sayajin_Ranged.ftsxml": [
+            "ART_DEF_VEFFECT_TRAIL_RAILGUN_PROJ",
+        ],
+        "FX_Triggers_Sayajin_Atomic.ftsxml": [
+            "ART_DEF_VEFFECT_TRAIL_RAILGUN_PROJ",
+            "ART_DEF_VEFFECT_ATOMIC_BOMB_01",
+        ],
+        "FX_Triggers_Sayajin_Nuclear.ftsxml": [
+            "ART_DEF_VEFFECT_TRAIL_RAILGUN_PROJ",
+            "ART_DEF_VEFFECT_NUCLEAR_BOMB_01",
+        ],
+    }
+    for trigger_name, expected_effects in trigger_specs.items():
+        project_file = project_files.get(trigger_name.lower())
+        if not project_file or not project_file[0].is_file() or not project_file[1]:
+            raise RuntimeError(f"Sayajin attack trigger is absent from VFS: {trigger_name}")
+
+        trigger_root = ET.parse(project_file[0]).getroot()
+        event_tracks = {
+            track.attrib["ec"] for track in trigger_root.findall("./event_tracks/event_track")
+        }
+        if event_tracks != attack_events:
+            raise RuntimeError(f"Attack event coverage is invalid: {trigger_name}")
+
+        triggers = trigger_root.findall("./triggers/trigger")
+        ids = [trigger.attrib["id"] for trigger in triggers]
+        if len(ids) != len(set(ids)):
+            raise RuntimeError(f"Duplicate trigger id in {trigger_name}")
+        effects_by_id = {
+            trigger.attrib["id"]: trigger
+            for trigger in triggers
+            if trigger.attrib.get("type") == "FTimedTriggerEffect"
+        }
+        transfers = [
+            trigger
+            for trigger in triggers
+            if trigger.attrib.get("type") == "FTimedTriggerTransfer"
+        ]
+        for transfer in transfers:
+            effect = effects_by_id.get(transfer.attrib.get("refid", ""))
+            if effect is None or effect.attrib.get("ec") != transfer.attrib.get("ec"):
+                raise RuntimeError(f"Orphan effect transfer in {trigger_name}")
+
+        for event_code in attack_events:
+            event_effects = [
+                trigger.attrib.get("event")
+                for trigger in effects_by_id.values()
+                if trigger.attrib.get("ec") == event_code
+            ]
+            if sorted(event_effects) != sorted(expected_effects):
+                raise RuntimeError(
+                    f"Wrong effects for attack event {event_code}: {trigger_name}"
+                )
+            effect_ids = {
+                trigger.attrib["id"]
+                for trigger in effects_by_id.values()
+                if trigger.attrib.get("ec") == event_code
+            }
+            transferred_ids = {
+                trigger.attrib["refid"]
+                for trigger in transfers
+                if trigger.attrib.get("ec") == event_code
+            }
+            if effect_ids != transferred_ids:
+                raise RuntimeError(
+                    f"An attack effect is not transferred to its target: {trigger_name}"
+                )
+        if "RIFLE" in ET.tostring(trigger_root, encoding="unicode").upper():
+            raise RuntimeError(f"Rifle effect leaked into Sayajin trigger: {trigger_name}")
+
     connection = sqlite3.connect(args.database)
     connection.row_factory = sqlite3.Row
     cursor = connection.cursor()
@@ -82,8 +154,8 @@ def main() -> None:
     infos = cursor.execute(
         "SELECT * FROM ArtDefine_UnitInfos WHERE Type LIKE 'ART_DEF_UNIT_SAYAJIN_%'"
     ).fetchall()
-    if len(infos) != 5:
-        raise RuntimeError(f"Expected 5 Sayajin art infos, found {len(infos)}.")
+    if len(infos) != 40:
+        raise RuntimeError(f"Expected 40 Sayajin art infos, found {len(infos)}.")
     for info in infos:
         if info["UnitFlagAtlas"] != "SAYAJIN_HERO_FLAG_ATLAS":
             raise RuntimeError(f"Unknown unit flag atlas on {info['Type']}")
@@ -91,8 +163,8 @@ def main() -> None:
     members = cursor.execute(
         "SELECT * FROM ArtDefine_UnitMemberInfos WHERE Type LIKE 'ART_DEF_UNIT_MEMBER_SAYAJIN_%'"
     ).fetchall()
-    if len(members) != 5:
-        raise RuntimeError(f"Expected 5 Sayajin member arts, found {len(members)}.")
+    if len(members) != 40:
+        raise RuntimeError(f"Expected 40 Sayajin member arts, found {len(members)}.")
     for member in members:
         model = member["Model"]
         if "/" in model or "\\" in model:
@@ -127,10 +199,41 @@ def main() -> None:
             bone.attrib["name"] for bone in asset.findall("./BoneUsage/Bone")
         }
         required_bones = {"gun_bone", "Base HumanSpine1", "Base HumanSpine2"}
+        is_ranged = any(
+            hero in member["Type"] for hero in ("_GOKU", "_GOHAN", "_PICCOLO")
+        )
+        if is_ranged:
+            required_bones.add("Base HumanRPalm")
         if not required_bones.issubset(bone_usage):
             raise RuntimeError(f"FXSXML has incomplete native bone usage: {model}")
-        if asset.find("TimedTrigger") is None:
-            raise RuntimeError(f"FXSXML has no native Infantry effect triggers: {model}")
+        timed_trigger = asset.find("TimedTrigger")
+        if timed_trigger is None:
+            raise RuntimeError(f"FXSXML has no timed attack trigger: {model}")
+        if is_ranged:
+            if member["Type"].endswith("_POSTMODERN"):
+                expected_trigger = "FX_Triggers_Sayajin_Atomic.ftsxml"
+            elif member["Type"].endswith("_FUTURE"):
+                expected_trigger = "FX_Triggers_Sayajin_Nuclear.ftsxml"
+            else:
+                expected_trigger = "FX_Triggers_Sayajin_Ranged.ftsxml"
+            if timed_trigger.attrib.get("file") != expected_trigger:
+                raise RuntimeError(
+                    f"Ranged form uses the wrong attack trigger: {member['Type']}"
+                )
+            attack_animation = asset.find("./Animation[@file='Infantry_Attack_City.gr2']")
+            if attack_animation is None or set(
+                part.strip() for part in attack_animation.attrib.get("ec", "").split(",")
+            ) != attack_events:
+                raise RuntimeError(f"Ranged form has no hand-cast attack pose: {model}")
+            forbidden_rifle_poses = {
+                "infantry_charge_attack.gr2",
+                "infantry_attacka.gr2",
+                "infantry_attackb.gr2",
+            }
+            if forbidden_rifle_poses.intersection(
+                animation.attrib["file"].lower() for animation in animations
+            ):
+                raise RuntimeError(f"Rifle attack pose leaked into ranged form: {model}")
 
         local_files = [asset.find("Mesh").attrib["file"]]
         local_files.extend(
@@ -150,7 +253,7 @@ def main() -> None:
     print(
         "VISUAL_PIPELINE_OK "
         f"atlases={len(atlases)} units={len(unit_rows)} artInfos={len(infos)} "
-        f"artMembers={len(members)} fxsxml={len(members)}"
+        f"artMembers={len(members)} fxsxml={len(members)} triggers={len(trigger_specs)}"
     )
 
 

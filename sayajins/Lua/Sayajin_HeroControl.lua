@@ -12,9 +12,11 @@ include("Sayajin_Config.lua")
 include("Sayajin_Utils.lua")
 include("Sayajin_HeroService.lua")
 include("Sayajin_MonumentService.lua")
+include("Sayajin_NuclearService.lua")
 
 local Heroes = Sayajin.Heroes
 local Monuments = Sayajin.Monuments
+local Nuclear = Sayajin.Nuclear
 
 local function SafeCall(label, fn, ...)
     local succeeded, errorMessage = pcall(fn, ...)
@@ -88,3 +90,7 @@ GameEvents.PlayerCityFounded.Add(OnPlayerCityFounded)
 GameEvents.TeamSetEra.Add(OnTeamSetEra)
 Events.SerialEventUnitCreated.Add(OnUnitCreated)
 Events.LoadScreenClose.Add(SyncAllSayajins)
+
+-- Combat hooks are registered last so a failure in the optional visual/event
+-- layer cannot prevent hero, monument or production rules from loading.
+SafeCall("Nuclear service registration", Nuclear.Register)

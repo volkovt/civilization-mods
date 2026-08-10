@@ -22,6 +22,26 @@ Config.PromotionHeroMarker = Type.PROMOTION_SAYAJIN_HERO_MARK
 Config.PromotionTranscendentAura = Type.PROMOTION_SAYAJIN_TRANSCENDENT_AURA
 Config.PromotionFinalForm = Type.PROMOTION_SAYAJIN_FINAL_FORM
 
+-- Controlled late-form blast damage.  These values intentionally reproduce
+-- the battlefield scale of the two nuclear tiers without turning heroes into
+-- native suicide weapons or invoking global nuclear-diplomacy state.
+Config.NuclearAttackTiers = {
+    Atomic = {
+        promotion = Config.PromotionTranscendentAura,
+        radius = 1,
+        unitDamagePercent = 50,
+        cityDamagePercent = 50,
+        messageKey = "TXT_KEY_SAYAJIN_ATOMIC_IMPACT"
+    },
+    Missile = {
+        promotion = Config.PromotionFinalForm,
+        radius = 2,
+        unitDamagePercent = 100,
+        cityDamagePercent = 90,
+        messageKey = "TXT_KEY_SAYAJIN_NUCLEAR_IMPACT"
+    }
+}
+
 Config.Eras = {
     Ancient     = Type.ERA_ANCIENT,
     Classical   = Type.ERA_CLASSICAL,

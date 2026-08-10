@@ -5,10 +5,10 @@
     <ProjectGuid>{bae703f5-0ec4-4867-bf3b-db84e46228b3}</ProjectGuid>
     <Name>Sayajins</Name>
     <Guid>1781f473-6f84-4258-b88a-a837cbd85611</Guid>
-    <ModVersion>8</ModVersion>
+    <ModVersion>11</ModVersion>
     <Stability>Beta</Stability>
     <Teaser>Nação Sayajin com cinco heróis, evoluções e ataques animados</Teaser>
-    <Description>Nação Sayajin liderada por Vegeta, com Goku, Gohan, Piccolo e Broly em modelos próprios, sete evoluções automáticas e golpes de ki animados.</Description>
+    <Description>Nação Sayajin liderada por Vegeta, com Goku, Gohan, Piccolo e Broly em modelos próprios, cabelos específicos por transformação, golpes de ki animados e explosões nucleares nativas nas duas formas finais.</Description>
     <Authors>Diego Melo</Authors>
     <SpecialThanks>
     </SpecialThanks>
@@ -101,6 +101,7 @@
   <ItemGroup>
     <Folder Include="ART" />
     <Folder Include="ART\Heroes" />
+    <Folder Include="ART\References" />
     <Folder Include="ART\Units" />
     <Folder Include="ART\Units\Vegeta" />
     <Folder Include="ART\Units\Goku" />
@@ -476,6 +477,14 @@
       <SubType>Content</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="ART\Units\Piccolo\Sayajin_Piccolo_PostModern.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Piccolo\Sayajin_Piccolo_Future.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="ART\Units\Piccolo\Sayajin_Piccolo_DIFF.dds">
       <SubType>Content</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -560,6 +569,342 @@
       <SubType>Content</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Classical.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Classical_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Classical_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Medieval.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Medieval_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Medieval_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Renaissance.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Renaissance_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Renaissance_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Industrial.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Industrial_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Industrial_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Modern.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Modern_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Modern_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_PostModern.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_PostModern_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_PostModern_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Future.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Future_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Vegeta\Sayajin_Vegeta_Future_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Classical.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Classical_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Classical_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Medieval.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Medieval_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Medieval_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Renaissance.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Renaissance_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Renaissance_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Industrial.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Industrial_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Industrial_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Modern.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Modern_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Modern_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_PostModern.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_PostModern_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_PostModern_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Future.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Future_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Goku\Sayajin_Goku_Future_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Classical.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Classical_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Classical_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Medieval.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Medieval_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Medieval_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Renaissance.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Renaissance_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Renaissance_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Industrial.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Industrial_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Industrial_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Modern.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Modern_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Modern_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_PostModern.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_PostModern_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_PostModern_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Future.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Future_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Gohan\Sayajin_Gohan_Future_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Classical.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Classical_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Classical_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Medieval.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Medieval_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Medieval_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Renaissance.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Renaissance_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Renaissance_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Industrial.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Industrial_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Industrial_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Modern.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Modern_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Modern_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_PostModern.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_PostModern_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_PostModern_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Future.fxsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Future_DIFF.dds">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\Broly\Sayajin_Broly_Future_Model.gr2">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="Lua\Sayajin_Config.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -573,6 +918,10 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Lua\Sayajin_MonumentService.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\Sayajin_NuclearService.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -698,6 +1047,18 @@
     </Content>
     <Content Include="ART\Heroes\SayajinHeroBroly_32.dds">
       <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\FX_Triggers_Sayajin_Ranged.ftsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\FX_Triggers_Sayajin_Atomic.ftsxml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="ART\Units\FX_Triggers_Sayajin_Nuclear.ftsxml">
+      <SubType>Content</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Text\Sayajin_Text.xml">

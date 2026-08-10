@@ -104,10 +104,10 @@
             <Text>Broly</Text>
         </Row>
         <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_BROWLY_HELP">
-            <Text>Colosso marítimo de combate corpo a corpo exclusivo dos Sayajins. Move-se em 7 lotes, rompe bloqueios, recebe bônus contra cidades e pode atacar repetidamente. Apenas 1 Broly pode permanecer vivo por vez. Evolui automaticamente com cada Era.</Text>
+            <Text>Colosso marítimo de combate corpo a corpo exclusivo dos Sayajins. Move-se em 7 lotes, rompe bloqueios e recebe bônus contra cidades. Apenas 1 Broly pode permanecer vivo por vez. Evolui automaticamente com cada Era.</Text>
         </Row>
         <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_BROWLY_PEDIA">
-            <Text>Broly avança diretamente sobre frotas inimigas, rompe bloqueios e protege a expansão costeira com força bruta. Sua animação de impacto e a capacidade de atacar mais de uma vez transformam sua fúria em pressão contínua.</Text>
+            <Text>Broly avança diretamente sobre frotas inimigas, rompe bloqueios e protege a expansão costeira com força bruta. Sua animação de impacto transforma sua fúria em pressão contínua sobre as forças inimigas.</Text>
         </Row>
         <Row Tag="TXT_KEY_SAYAJIN_HERO_NAME_VEGETA">
             <Text>Príncipe Vegeta</Text>
@@ -437,19 +437,25 @@
             <Text>Eraser Cannon</Text>
         </Row>
         <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_ATTACK_BROLY_HELP">
-            <Text>Investida naval corpo a corpo: +20% no ataque, +30% contra cidades, cura ao destruir e ataques múltiplos.</Text>
+            <Text>Investida naval corpo a corpo: +20% no ataque, +30% contra cidades e cura ao destruir.</Text>
         </Row>
         <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_TRANSCENDENT_AURA">
             <Text>Aura Transcendente</Text>
         </Row>
         <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_TRANSCENDENT_AURA_HELP">
-            <Text>Nas formas Pós-Modernas: +20% de força, +1 de movimento e pode agir após atacar.</Text>
+            <Text>Nas formas Pós-Modernas: +20% de força, +1 de movimento, pode agir após atacar e cada golpe libera poder destrutivo equivalente a uma Bomba Atômica.</Text>
         </Row>
         <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_FINAL_FORM">
             <Text>Forma Final</Text>
         </Row>
         <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_FINAL_FORM_HELP">
-            <Text>Na Era Futura: +25% de força, +1 de movimento, ignora zonas de controle e ganha um ataque adicional.</Text>
+            <Text>Na Era Futura: +25% de força, +1 de movimento, ignora zonas de controle, ganha um ataque adicional e cada golpe libera poder destrutivo equivalente a um Míssil Nuclear.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_ATOMIC_IMPACT">
+            <Text>O golpe Sayajin liberou uma explosão com poder de Bomba Atômica!</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_NUCLEAR_IMPACT">
+            <Text>O golpe Sayajin liberou uma explosão com poder de Míssil Nuclear!</Text>
         </Row>
     </Language_en_US>
 </GameData>

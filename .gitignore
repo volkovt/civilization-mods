@@ -43,6 +43,8 @@ htmlcov/
 # Rebuildable 3D export intermediates; keep .blend sources and final .gr2 files
 /sayajins/ART/Units/*/Source/*.fbx
 /sayajins/ART/Units/*/Source/*.br2
+/sayajins/ART/Units/*/Sayajin_*_*_DIFF.png
+/sayajins/ART/Units/*/Sayajin_*_*_preview.png
 *.blend1
 
 # Temporary folders created with malformed/non-ASCII names by old art scripts
