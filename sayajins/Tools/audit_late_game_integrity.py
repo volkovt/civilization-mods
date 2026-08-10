@@ -44,7 +44,7 @@ def parse_project(project_path: Path, mod_root: Path) -> None:
         value = root.findtext(f"m:PropertyGroup/m:{name}", default="", namespaces=NS)
         return value.strip()
 
-    require(property_text("ModVersion") == "11", "Project must package ModVersion 11.")
+    require(property_text("ModVersion") == "13", "Project must package ModVersion 13.")
     require(property_text("ReloadUnitSystem").lower() == "true", "ReloadUnitSystem must remain enabled for custom animated units.")
     require(property_text("SupportsSinglePlayer").lower() == "true", "Single-player support is disabled.")
     require(property_text("SupportsMultiplayer").lower() == "false", "Gameplay Lua is not network-synchronized; multiplayer must not be advertised.")

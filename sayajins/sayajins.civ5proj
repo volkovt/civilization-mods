@@ -5,7 +5,7 @@
     <ProjectGuid>{bae703f5-0ec4-4867-bf3b-db84e46228b3}</ProjectGuid>
     <Name>Sayajins</Name>
     <Guid>1781f473-6f84-4258-b88a-a837cbd85611</Guid>
-    <ModVersion>11</ModVersion>
+    <ModVersion>13</ModVersion>
     <Stability>Beta</Stability>
     <Teaser>Nação Sayajin com cinco heróis, evoluções e ataques animados</Teaser>
     <Description>Nação Sayajin liderada por Vegeta, com Goku, Gohan, Piccolo e Broly em modelos próprios, cabelos específicos por transformação, golpes de ki animados e explosões nucleares nativas nas duas formas finais.</Description>
@@ -153,11 +153,11 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="ART\SayajinDawn_768.dds">
+    <Content Include="ART\SayajinDawn_1024.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="ART\SayajinDawn_768.png">
+    <Content Include="ART\SayajinDawn_1024.png">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -261,11 +261,11 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="ART\SayajinMap_512.dds">
+    <Content Include="ART\SayajinMap_360x412.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="ART\SayajinMap_512.png">
+    <Content Include="ART\SayajinMap_360x412.png">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>

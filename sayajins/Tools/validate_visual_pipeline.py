@@ -21,6 +21,14 @@ def dds_dimensions(path: Path) -> tuple[int, int]:
     return width, height
 
 
+def dds_fourcc(path: Path) -> bytes:
+    with path.open("rb") as stream:
+        header = stream.read(88)
+    if len(header) != 88 or header[:4] != b"DDS ":
+        raise RuntimeError(f"Invalid DDS header: {path.name}")
+    return header[84:88]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--database", required=True)
@@ -111,6 +119,38 @@ def main() -> None:
     connection = sqlite3.connect(args.database)
     connection.row_factory = sqlite3.Row
     cursor = connection.cursor()
+
+    civilization_art = cursor.execute(
+        "SELECT DawnOfManImage, MapImage FROM Civilizations "
+        "WHERE Type = 'CIVILIZATION_SAYAJIN'"
+    ).fetchone()
+    if civilization_art is None:
+        raise RuntimeError("Sayajin civilization has no Dawn of Man configuration.")
+    dawn_filename = Path(civilization_art["DawnOfManImage"].replace("\\", "/")).name
+    dawn_file = project_files.get(dawn_filename.lower())
+    if not dawn_file or not dawn_file[0].is_file() or not dawn_file[1]:
+        raise RuntimeError(f"Dawn of Man texture is absent from VFS: {dawn_filename}")
+    if dds_dimensions(dawn_file[0]) != (1024, 768):
+        raise RuntimeError(
+            f"Dawn of Man texture must be 1024x768: {dawn_filename} is "
+            f"{dds_dimensions(dawn_file[0])[0]}x{dds_dimensions(dawn_file[0])[1]}"
+        )
+    if dds_fourcc(dawn_file[0]) != b"DXT5":
+        raise RuntimeError(f"Dawn of Man texture is not legacy DXT5: {dawn_filename}")
+
+    map_filename = Path(civilization_art["MapImage"].replace("\\", "/")).name
+    map_file = project_files.get(map_filename.lower())
+    if not map_file or not map_file[0].is_file() or not map_file[1]:
+        raise RuntimeError(f"Civilization selection texture is absent from VFS: {map_filename}")
+    if dds_dimensions(map_file[0]) != (360, 412):
+        raise RuntimeError(
+            f"Civilization selection texture must be 360x412: {map_filename} is "
+            f"{dds_dimensions(map_file[0])[0]}x{dds_dimensions(map_file[0])[1]}"
+        )
+    if dds_fourcc(map_file[0]) != b"DXT5":
+        raise RuntimeError(
+            f"Civilization selection texture is not legacy DXT5: {map_filename}"
+        )
 
     atlases = cursor.execute(
         "SELECT * FROM IconTextureAtlases WHERE Atlas LIKE 'SAYAJIN%'"
@@ -253,7 +293,8 @@ def main() -> None:
     print(
         "VISUAL_PIPELINE_OK "
         f"atlases={len(atlases)} units={len(unit_rows)} artInfos={len(infos)} "
-        f"artMembers={len(members)} fxsxml={len(members)} triggers={len(trigger_specs)}"
+        f"artMembers={len(members)} fxsxml={len(members)} triggers={len(trigger_specs)} "
+        "dawn=1024x768-DXT5 map=360x412-DXT5"
     )
 
 

@@ -134,8 +134,8 @@ INSERT INTO Civilizations
 SELECT  'CIVILIZATION_SAYAJIN', 'TXT_KEY_CIV_SAYAJIN_DESC', NULL,       'TXT_KEY_CIV5_SAYAJIN_TEXT', 'TXT_KEY_CIV_SAYAJIN_STRATEGY',
         1,        1,          'TXT_KEY_CIV_SAYAJIN_SHORT_DESC', 'TXT_KEY_CIV_SAYAJIN_ADJECTIVE', 'PLAYERCOLOR_SAYAJIN',
         ArtDefineTag, ArtStyleType, ArtStyleSuffix, ArtStylePrefix,
-        0,             'SAYAJIN_ICON_ATLAS', 'SAYAJIN_ALPHA_ATLAS', 'Art/SayajinMap_512.dds',
-        'TXT_KEY_CIV5_DOM_SAYAJIN_TEXT', 'Art/SayajinDawn_768.dds', DawnOfManAudio, SoundtrackTag
+        0,             'SAYAJIN_ICON_ATLAS', 'SAYAJIN_ALPHA_ATLAS', 'Art/SayajinMap_360x412.dds',
+        'TXT_KEY_CIV5_DOM_SAYAJIN_TEXT', 'Art/SayajinDawn_1024.dds', DawnOfManAudio, SoundtrackTag
 FROM Civilizations
 WHERE Type = 'CIVILIZATION_ARABIA';
 
