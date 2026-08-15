@@ -5,10 +5,10 @@
     <ProjectGuid>{bae703f5-0ec4-4867-bf3b-db84e46228b3}</ProjectGuid>
     <Name>Sayajins</Name>
     <Guid>1781f473-6f84-4258-b88a-a837cbd85611</Guid>
-    <ModVersion>13</ModVersion>
+    <ModVersion>19</ModVersion>
     <Stability>Beta</Stability>
     <Teaser>Nação Sayajin com cinco heróis, evoluções e ataques animados</Teaser>
-    <Description>Nação Sayajin liderada por Vegeta, com Goku, Gohan, Piccolo e Broly em modelos próprios, cabelos específicos por transformação, golpes de ki animados e explosões nucleares nativas nas duas formas finais.</Description>
+    <Description>Nação Sayajin liderada por Vegeta, com cinco heróis, transformações, golpes de ki animados, ataques nucleares e poderes ativos seguros em uma barra compacta: Transmissão Instantânea e Final Explosion.</Description>
     <Authors>Diego Melo</Authors>
     <SpecialThanks>
     </SpecialThanks>
@@ -75,6 +75,12 @@
         <Name>Sayajin Hero Control</Name>
         <Description>Synchronizes Sayajin heroes, transformations and the Monument empire bonus.</Description>
         <FileName>Lua/Sayajin_HeroControl.lua</FileName>
+      </Content>
+      <Content xmlns="">
+        <Type>InGameUIAddin</Type>
+        <Name>Sayajin Power Panel</Name>
+        <Description>Safe active-power UI for Goku and Vegeta.</Description>
+        <FileName>Lua/Sayajin_PowerPanel.xml</FileName>
       </Content>
     </ModContent>
     <ModDependencies>
@@ -922,6 +928,18 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Lua\Sayajin_NuclearService.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\Sayajin_PowerService.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\Sayajin_PowerPanel.xml">
+      <SubType>Content</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\Sayajin_PowerPanel.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>

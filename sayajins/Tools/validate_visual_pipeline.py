@@ -290,11 +290,92 @@ def main() -> None:
     if 'include("Lua/' in control:
         raise RuntimeError("Lua includes still use physical source paths.")
 
+    power_files = {
+        "sayajin_powerservice.lua": True,
+        "sayajin_powerpanel.xml": False,
+        "sayajin_powerpanel.lua": True,
+    }
+    for filename, expected_import in power_files.items():
+        project_file = project_files.get(filename)
+        if not project_file or not project_file[0].is_file():
+            raise RuntimeError(f"Power UI file is absent from the project: {filename}")
+        if project_file[1] != expected_import:
+            raise RuntimeError(f"Power UI file has invalid VFS state: {filename}")
+
+    power_xml = ET.parse(project_files["sayajin_powerpanel.xml"][0]).getroot()
+    controls = {
+        element.attrib.get("ID")
+        for element in power_xml.iter()
+        if element.attrib.get("ID")
+    }
+    required_controls = {
+        "PowerPanel",
+        "PanelTitle",
+        "PowerName",
+        "PowerStatus",
+        "TargetCoordinates",
+        "PowerActionStack",
+        "PowerActionButton",
+        "PowerActionIcon",
+        "CancelButton",
+        "MinimizeButton",
+        "MinimizeLabel",
+        "CollapsedButton",
+        "ExpandLabel",
+    }
+    if not required_controls.issubset(controls):
+        raise RuntimeError(
+            "Power panel XML is incomplete: "
+            + ", ".join(sorted(required_controls - controls))
+        )
+
+    power_panel = next(
+        element for element in power_xml.iter()
+        if element.attrib.get("ID") == "PowerPanel"
+    )
+    if power_panel.attrib.get("Anchor") != "L,B":
+        raise RuntimeError("Power panel is no longer anchored beside the unit controls.")
+    panel_width = int(power_panel.attrib.get("Size", "0,0").split(",")[0])
+    if panel_width > 80:
+        raise RuntimeError("Power panel regressed into a wide floating overlay.")
+
+    if "Header" in controls:
+        raise RuntimeError("Power panel regressed into a redundant framed header.")
+
+    minimize_button = next(
+        element for element in power_xml.iter()
+        if element.attrib.get("ID") == "MinimizeButton"
+    )
+    if minimize_button.attrib.get("Anchor") != "R,T":
+        raise RuntimeError("Power panel minimize button is not safely anchored.")
+
+    collapsed_button = next(
+        element for element in power_xml.iter()
+        if element.attrib.get("ID") == "CollapsedButton"
+    )
+    collapsed_width, collapsed_height = (
+        int(value) for value in collapsed_button.attrib.get("Size", "0,0").split(",")
+    )
+    if collapsed_button.tag != "Button" or collapsed_width > 30 or collapsed_height > 30:
+        raise RuntimeError("Collapsed power panel is not a truly compact standalone button.")
+
+    panel_fonts = {
+        element.attrib["Font"]
+        for element in power_xml.iter()
+        if element.attrib.get("Font")
+    }
+    unsupported_fonts = panel_fonts - {"TwCenMT14", "TwCenMT16"}
+    if unsupported_fonts:
+        raise RuntimeError(
+            "Power panel references fonts without a proven Civ V XML resource: "
+            + ", ".join(sorted(unsupported_fonts))
+        )
+
     print(
         "VISUAL_PIPELINE_OK "
         f"atlases={len(atlases)} units={len(unit_rows)} artInfos={len(infos)} "
         f"artMembers={len(members)} fxsxml={len(members)} triggers={len(trigger_specs)} "
-        "dawn=1024x768-DXT5 map=360x412-DXT5"
+        "dawn=1024x768-DXT5 map=360x412-DXT5 powersUI=ok"
     )
 
 

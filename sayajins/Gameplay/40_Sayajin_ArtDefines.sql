@@ -44,19 +44,19 @@ VALUES  ('ART_DEF_UNIT_MEMBER_SAYAJIN_VEGETA',  'Idle Attack Death Run Fortify C
         ('ART_DEF_UNIT_MEMBER_SAYAJIN_BROLY',    'Idle Attack Death Run Fortify CombatReady', '',
          5, 12, 18, 32, 32, 0.35, 1, 12, 10, 0, 0, 1, 0, 1, 1, '');
 
--- Infantry's timed attack trigger always dispatches weapon slot 0.  Melee
--- heroes keep a physical strike there; ranged heroes use the Giant Death
--- Robot's railgun trail as a clean laser/ki-beam projectile in the same slot.
+-- Infantry's timed attack trigger always dispatches weapon slot 0. Every hero
+-- therefore uses the Giant Death Robot railgun trail as a clean ki/laser beam;
+-- melee gameplay roles remain unchanged because this is an art-only profile.
 INSERT INTO ArtDefine_UnitMemberCombatWeapons
         (UnitMemberType, "Index", SubIndex, ID, VisKillStrengthMin, VisKillStrengthMax,
          ProjectileSpeed, HitEffect, HitEffectScale, HitRadius, ProjectileChildEffectScale,
          AreaDamageDelay, ContinuousFire, WaitForEffectCompletion, TargetGround, IsDropped,
          WeaponTypeTag, WeaponTypeSoundOverrideTag, MissTargetSlopRadius)
-VALUES  ('ART_DEF_UNIT_MEMBER_SAYAJIN_VEGETA', 0, 0, '', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, 0, 0, 0, 0, 'BLUNT',     'BLUNT',   8),
+VALUES  ('ART_DEF_UNIT_MEMBER_SAYAJIN_VEGETA', 0, 0, 'ART_DEF_VEFFECT_TRAIL_RAILGUN_PROJ', 10, 20, 5.3, '', 1.35, 20, 1.35, 0.12, 0, 0, 0, 0, 'EXPLOSIVE', 'RAILGUN', 10),
         ('ART_DEF_UNIT_MEMBER_SAYAJIN_GOKU', 0, 0, 'ART_DEF_VEFFECT_TRAIL_RAILGUN_PROJ', 10, 20, 5.3, '', 1.55, 22, 1.55, 0.15, 0, 0, 0, 0, 'EXPLOSIVE', 'RAILGUN', 10),
         ('ART_DEF_UNIT_MEMBER_SAYAJIN_GOHAN', 0, 0, 'ART_DEF_VEFFECT_TRAIL_RAILGUN_PROJ', 10, 20, 5.3, '', 1.25, 18, 1.25, 0.10, 0, 0, 0, 0, 'EXPLOSIVE', 'RAILGUN', 10),
         ('ART_DEF_UNIT_MEMBER_SAYAJIN_PICCOLO', 0, 0, 'ART_DEF_VEFFECT_TRAIL_RAILGUN_PROJ', 10, 20, 5.3, '', 1.45, 20, 1.45, 0.12, 0, 0, 0, 0, 'EXPLOSIVE', 'RAILGUN', 10),
-        ('ART_DEF_UNIT_MEMBER_SAYAJIN_BROLY', 0, 0, '', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, 0, 0, 0, 0, 'BLUNT',      'BLUNT',   8);
+        ('ART_DEF_UNIT_MEMBER_SAYAJIN_BROLY', 0, 0, 'ART_DEF_VEFFECT_TRAIL_RAILGUN_PROJ', 10, 20, 5.3, '', 1.65, 24, 1.65, 0.15, 0, 0, 0, 0, 'EXPLOSIVE', 'RAILGUN', 10);
 
 UPDATE Units SET UnitArtInfo = 'ART_DEF_UNIT_SAYAJIN_VEGETA',
                  UnitArtInfoCulturalVariation = 0,
@@ -171,36 +171,39 @@ SELECT  'ART_DEF_UNIT_MEMBER_SAYAJIN_' || h.ArtKey || '_' || f.FormKey,
 FROM SayajinArtHeroes h
 CROSS JOIN SayajinArtForms f;
 
--- Weapon 0 is the physical attack used by Vegeta and Broly.  On their last
--- two forms it plays Civ V's native mushroom-cloud impact, while retaining
--- the controlled Lua damage model (no suicide, fallout or global nuke state).
+-- Vegeta and Broly keep melee combat rules but weapon 0 now renders the same
+-- railgun/ki laser used by ranged heroes. Their last two forms add Civ V's
+-- mushroom-cloud impact without enabling native nuke or suicide behaviour.
 INSERT INTO ArtDefine_UnitMemberCombatWeapons
         (UnitMemberType, "Index", SubIndex, ID, VisKillStrengthMin, VisKillStrengthMax,
          ProjectileSpeed, HitEffect, HitEffectScale, HitRadius, ProjectileChildEffectScale,
          AreaDamageDelay, ContinuousFire, WaitForEffectCompletion, TargetGround, IsDropped,
          WeaponTypeTag, WeaponTypeSoundOverrideTag, MissTargetSlopRadius)
 SELECT  'ART_DEF_UNIT_MEMBER_SAYAJIN_' || h.ArtKey || '_' || f.FormKey,
-        0, 0, '',
-        CASE WHEN h.IsRanged = 0 AND f.FormKey IN ('POSTMODERN','FUTURE') THEN 100 ELSE NULL END,
-        CASE WHEN h.IsRanged = 0 AND f.FormKey IN ('POSTMODERN','FUTURE') THEN 100 ELSE NULL END,
-        NULL,
+        0, 0, 'ART_DEF_VEFFECT_TRAIL_RAILGUN_PROJ',
+        CASE WHEN f.FormKey IN ('POSTMODERN','FUTURE') THEN 100 ELSE 10 END,
+        CASE WHEN f.FormKey IN ('POSTMODERN','FUTURE') THEN 100 ELSE 20 END,
+        5.3,
         CASE WHEN h.IsRanged = 0 AND f.FormKey IN ('POSTMODERN','FUTURE')
              THEN 'ART_DEF_VEFFECT_NUCLEAR_BOMB_01' ELSE '' END,
-        CASE WHEN h.IsRanged = 0 AND f.FormKey = 'POSTMODERN' THEN 0.65
-             WHEN h.IsRanged = 0 AND f.FormKey = 'FUTURE' THEN 1.25 ELSE NULL END,
-        CASE WHEN h.IsRanged = 0 AND f.FormKey = 'POSTMODERN' THEN 30
-             WHEN h.IsRanged = 0 AND f.FormKey = 'FUTURE' THEN 48 ELSE NULL END,
-        NULL,
-        CASE WHEN h.IsRanged = 0 AND f.FormKey IN ('POSTMODERN','FUTURE') THEN 0.5 ELSE NULL END,
+        CASE WHEN f.FormKey = 'POSTMODERN' THEN 0.65
+             WHEN f.FormKey = 'FUTURE' THEN 1.25
+             WHEN h.ArtKey = 'BROLY' THEN 1.65 ELSE 1.35 END,
+        CASE WHEN f.FormKey = 'POSTMODERN' THEN 30
+             WHEN f.FormKey = 'FUTURE' THEN 48
+             WHEN h.ArtKey = 'BROLY' THEN 24 ELSE 20 END,
+        CASE WHEN h.ArtKey = 'BROLY' THEN 1.65 ELSE 1.35 END,
+        CASE WHEN f.FormKey IN ('POSTMODERN','FUTURE') THEN 0.5
+             WHEN h.ArtKey = 'BROLY' THEN 0.15 ELSE 0.12 END,
         0,
-        CASE WHEN h.IsRanged = 0 AND f.FormKey IN ('POSTMODERN','FUTURE') THEN 1 ELSE 0 END,
-        CASE WHEN h.IsRanged = 0 AND f.FormKey IN ('POSTMODERN','FUTURE') THEN 1 ELSE 0 END,
+        CASE WHEN f.FormKey IN ('POSTMODERN','FUTURE') THEN 1 ELSE 0 END,
+        CASE WHEN f.FormKey IN ('POSTMODERN','FUTURE') THEN 1 ELSE 0 END,
         0,
-        CASE WHEN h.IsRanged = 0 AND f.FormKey IN ('POSTMODERN','FUTURE') THEN 'EXPLOSIVE' ELSE 'BLUNT' END,
-        CASE WHEN h.IsRanged = 0 AND f.FormKey = 'POSTMODERN' THEN 'ATOMICBOMB'
-             WHEN h.IsRanged = 0 AND f.FormKey = 'FUTURE' THEN 'EXPLOSION1TON'
-             ELSE 'BLUNT' END,
-        8
+        'EXPLOSIVE',
+        CASE WHEN f.FormKey = 'POSTMODERN' THEN 'ATOMICBOMB'
+             WHEN f.FormKey = 'FUTURE' THEN 'EXPLOSION1TON'
+             ELSE 'RAILGUN' END,
+        10
 FROM SayajinArtHeroes h
 CROSS JOIN SayajinArtForms f
 WHERE h.IsRanged = 0;

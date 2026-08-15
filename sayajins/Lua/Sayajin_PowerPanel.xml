@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context ColorSet="Beige_Black" Font="TwCenMT14" FontStyle="Shadow">
+  <!--
+    Native-looking, icon-only power rail. PowerActionInstance is intentionally
+    data-driven: Lua can add more powers without duplicating or resizing XML.
+  -->
+  <Instance Name="PowerActionInstance">
+    <GridButton ID="PowerActionButton" Anchor="C,T" Size="50,50" Style="BaseButton" Hidden="0" ConsumeMouse="1">
+      <Image ID="PowerActionIcon" Anchor="C,C" Offset="0,0" Size="45,45" ConsumeMouse="0" />
+    </GridButton>
+  </Instance>
+
+  <Grid ID="PowerPanel" Anchor="L,B" Offset="52,180" Size="66,84" Padding="4,4" Style="Grid9DetailFive140" Hidden="1" ConsumeMouse="1">
+    <!-- The rail has no second decorative header frame, keeping the top edge thin. -->
+    <Label ID="PanelTitle" Anchor="L,T" Offset="8,4" Size="26,18" Font="TwCenMT14" ColorSet="Beige_Black_Alpha" FontStyle="SoftShadow" String="TXT_KEY_SAYAJIN_POWER_PANEL_COMPACT_TITLE" ConsumeMouse="0" />
+
+    <Button ID="MinimizeButton" Anchor="R,T" Offset="5,3" Size="22,20" Style="BaseButton" ConsumeMouse="1">
+      <Label ID="MinimizeLabel" Anchor="C,C" Offset="0,-1" Size="16,16" Font="TwCenMT14" ColorSet="Beige_Black_Alpha" FontStyle="SoftShadow" String="-" ConsumeMouse="0" />
+    </Button>
+
+    <Stack ID="PowerActionStack" Anchor="C,T" Offset="0,27" Size="50,50" StackGrowth="Bottom" Padding="4" />
+
+    <Button ID="CancelButton" Anchor="C,B" Offset="0,4" Size="50,21" Style="BaseButton" Hidden="1" ToolTip="TXT_KEY_SAYAJIN_POWER_CANCEL_TOOLTIP" ConsumeMouse="1">
+      <Label Anchor="C,C" Offset="0,-1" Size="42,16" Font="TwCenMT14" ColorSet="Beige_Black_Alpha" FontStyle="SoftShadow" String="X" ConsumeMouse="0" />
+    </Button>
+
+    <!-- Hidden semantic controls preserve localized state for UI diagnostics. -->
+    <Label ID="PowerName" Anchor="L,T" Offset="0,0" Size="1,1" Hidden="1" String="" ConsumeMouse="0" />
+    <Label ID="PowerStatus" Anchor="L,T" Offset="0,0" Size="1,1" Hidden="1" String="" ConsumeMouse="0" />
+    <Label ID="TargetCoordinates" Anchor="L,T" Offset="0,0" Size="1,1" Hidden="1" String="" ConsumeMouse="0" />
+  </Grid>
+
+  <!-- A separate control avoids the minimum visual width of Grid9DetailFive140. -->
+  <Button ID="CollapsedButton" Anchor="L,B" Offset="52,180" Size="28,27" Style="BaseButton" Hidden="1" ToolTip="TXT_KEY_SAYAJIN_POWER_PANEL_EXPAND_TOOLTIP" ConsumeMouse="1">
+    <Label ID="ExpandLabel" Anchor="C,C" Offset="0,-1" Size="18,18" Font="TwCenMT14" ColorSet="Beige_Black_Alpha" FontStyle="SoftShadow" String="+" ConsumeMouse="0" />
+  </Button>
+</Context>

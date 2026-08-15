@@ -54,15 +54,28 @@ local function ApplyHeroEraPromotion(pUnit, iEra)
     end
 end
 
-local function ApplyHeroFormPromotions(pUnit, iEra)
+local function ApplyHeroFormPromotions(pUnit, iEra, groupKey)
     local isPostModern = iEra == Config.Eras.PostModern
     local isFuture = Config.Eras.Future and iEra and iEra >= Config.Eras.Future
+    local activePowersUnlocked = Utils.GetEraStep(iEra) >= Config.PowerUnlockEraStep
 
     if Config.PromotionTranscendentAura and Config.PromotionTranscendentAura ~= -1 then
         pUnit:SetHasPromotion(Config.PromotionTranscendentAura, isPostModern)
     end
     if Config.PromotionFinalForm and Config.PromotionFinalForm ~= -1 then
         pUnit:SetHasPromotion(Config.PromotionFinalForm, isFuture)
+    end
+    if Config.PromotionInstantTransmission and Config.PromotionInstantTransmission ~= -1 then
+        pUnit:SetHasPromotion(
+            Config.PromotionInstantTransmission,
+            activePowersUnlocked and groupKey == "Goku"
+        )
+    end
+    if Config.PromotionFinalExplosion and Config.PromotionFinalExplosion ~= -1 then
+        pUnit:SetHasPromotion(
+            Config.PromotionFinalExplosion,
+            activePowersUnlocked and groupKey == "Vegeta"
+        )
     end
 end
 
@@ -201,7 +214,7 @@ local function ApplyHeroName(pUnit, group, iEra)
 end
 
 local function SyncHeroUnit(pPlayer, pUnit, iEra)
-    local _, group = GetGroupFromUnit(pUnit)
+    local groupKey, group = GetGroupFromUnit(pUnit)
     if not group then
         return
     end
@@ -211,7 +224,7 @@ local function SyncHeroUnit(pPlayer, pUnit, iEra)
     ApplyHeroEraPromotion(pUnit, iEra)
     -- Convert carries promotions from the old form. Normalize the two
     -- form-exclusive bonuses so Post-Modern and Future never stack forever.
-    ApplyHeroFormPromotions(pUnit, iEra)
+    ApplyHeroFormPromotions(pUnit, iEra, groupKey)
     ApplyHeroEraStats(pUnit, group, iEra)
 end
 

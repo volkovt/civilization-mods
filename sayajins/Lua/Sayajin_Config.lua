@@ -21,6 +21,20 @@ Config.BuildingSayajinMonumentEmpire = Type.BUILDING_SAYAJIN_MONUMENT_EMPIRE
 Config.PromotionHeroMarker = Type.PROMOTION_SAYAJIN_HERO_MARK
 Config.PromotionTranscendentAura = Type.PROMOTION_SAYAJIN_TRANSCENDENT_AURA
 Config.PromotionFinalForm = Type.PROMOTION_SAYAJIN_FINAL_FORM
+Config.PromotionInstantTransmission = Type.PROMOTION_SAYAJIN_INSTANT_TRANSMISSION
+Config.PromotionFinalExplosion = Type.PROMOTION_SAYAJIN_FINAL_EXPLOSION
+
+-- Active powers unlock on the second transformation (Super Saiyan), which
+-- corresponds to the Medieval form in the era-driven transformation table.
+-- Both powers consume the unit's turn and are protected by a persistent
+-- once-per-turn cooldown in Sayajin_PowerService.lua.
+Config.PowerUnlockEraStep = 2
+Config.FinalExplosionRadius = 1
+Config.FinalExplosionHealthCostNumerator = 2
+Config.FinalExplosionHealthCostDenominator = 3
+Config.FinalExplosionDamageMultiplier = 2
+Config.FinalExplosionExperiencePerTarget = 2
+Config.FinalExplosionMaxExperience = 10
 
 -- Controlled late-form blast damage.  These values intentionally reproduce
 -- the battlefield scale of the two nuclear tiers without turning heroes into
@@ -88,7 +102,9 @@ Config.AllEraPromotions = {
 
 Config.FormOnlyPromotions = {
     Type.PROMOTION_SAYAJIN_TRANSCENDENT_AURA,
-    Type.PROMOTION_SAYAJIN_FINAL_FORM
+    Type.PROMOTION_SAYAJIN_FINAL_FORM,
+    Type.PROMOTION_SAYAJIN_INSTANT_TRANSMISSION,
+    Type.PROMOTION_SAYAJIN_FINAL_EXPLOSION
 }
 
 Config.HeroGroups = {

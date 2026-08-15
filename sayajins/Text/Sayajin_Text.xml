@@ -68,7 +68,7 @@
             <Text>Príncipe Vegeta</Text>
         </Row>
         <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_HELP">
-            <Text>Herói terrestre de combate corpo a corpo exclusivo dos Sayajins. Move-se em 6 lotes, rompe linhas inimigas e recebe bônus ao atacar cidades. Apenas 1 Príncipe Vegeta pode permanecer vivo por vez. Evolui automaticamente com cada Era.</Text>
+            <Text>Herói terrestre de combate corpo a corpo exclusivo dos Sayajins. Move-se em 6 lotes, rompe linhas inimigas e recebe bônus ao atacar cidades. A partir de Super Sayajin desbloqueia Final Explosion. Apenas 1 Príncipe Vegeta pode permanecer vivo por vez. Evolui automaticamente com cada Era.</Text>
         </Row>
         <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_PEDIA">
             <Text>Vegeta é o herdeiro do trono Sayajin e o executor direto do orgulho imperial. Nesta versão do mod, ele representa o herói terrestre de assalto: forte no combate direto, ideal para romper linhas inimigas, proteger heróis mais frágeis e liderar a expansão do império em terra.</Text>
@@ -77,7 +77,7 @@
             <Text>Goku</Text>
         </Row>
         <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOKU_HELP">
-            <Text>Herói terrestre de ataque à distância exclusivo dos Sayajins. Move-se em 3 lotes e dispara o Kamehameha a até 4 lotes, ignorando linha de visão. Apenas 1 Goku pode permanecer vivo por vez. Evolui automaticamente com cada Era.</Text>
+            <Text>Herói terrestre de ataque à distância exclusivo dos Sayajins. Move-se em 3 lotes e dispara o Kamehameha a até 4 lotes, ignorando linha de visão. A partir de Super Sayajin desbloqueia Transmissão Instantânea. Apenas 1 Goku pode permanecer vivo por vez. Evolui automaticamente com cada Era.</Text>
         </Row>
         <Row Tag="TXT_KEY_UNIT_SAYAJIN_HERO_GOKU_PEDIA">
             <Text>Goku é o herói de fogo de apoio e precisão. O Kamehameha animado atravessa obstáculos, pressiona cidades e recupera energia ao destruir inimigos, abrindo espaço para o restante da formação avançar.</Text>
@@ -456,6 +456,150 @@
         </Row>
         <Row Tag="TXT_KEY_SAYAJIN_NUCLEAR_IMPACT">
             <Text>O golpe Sayajin liberou uma explosão com poder de Míssil Nuclear!</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_INSTANT_TRANSMISSION">
+            <Text>Transmissão Instantânea</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_INSTANT_TRANSMISSION_HELP">
+            <Text>Disponível para Goku a partir de Super Sayajin. Uma vez por turno, pode se teletransportar para um lote terrestre vazio e totalmente visível, consumindo todos os movimentos restantes.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_FINAL_EXPLOSION">
+            <Text>Final Explosion</Text>
+        </Row>
+        <Row Tag="TXT_KEY_PROMOTION_SAYAJIN_FINAL_EXPLOSION_HELP">
+            <Text>Disponível para Vegeta a partir de Super Sayajin. Uma vez por turno, sacrifica 2/3 dos PV atuais, causa aos inimigos adjacentes o dobro dos PV sacrificados e recebe 2 XP por inimigo atingido, até 10 XP.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_PANEL_TITLE">
+            <Text>PODER SAYAJIN</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_PANEL_COMPACT_TITLE">
+            <Text>KI</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_PANEL_MINIMIZE_TOOLTIP">
+            <Text>Minimiza a barra de poderes para liberar a área das promoções.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_PANEL_EXPAND_TOOLTIP">
+            <Text>Expande novamente a barra de poderes.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_READY">
+            <Text>Poder disponível. A utilização consumirá todos os movimentos deste turno.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_LOCKED">
+            <Text>Este poder será desbloqueado na transformação Super Sayajin.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_WRONG_UNIT">
+            <Text>O herói selecionado não pode utilizar este poder.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_NOT_TURN">
+            <Text>O poder só pode ser utilizado durante o turno ativo deste jogador.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_NO_MOVES">
+            <Text>Este herói já encerrou suas ações neste turno.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_ALREADY_USED">
+            <Text>Este poder já foi utilizado neste turno.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_IN_COMBAT">
+            <Text>Não é possível ativar um poder durante uma simulação de combate.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_FAILED">
+            <Text>O poder foi cancelado com segurança porque o jogo rejeitou a operação.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_GOKU_NAME">
+            <Text>Transmissão Instantânea</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_GOKU_BUTTON">
+            <Text>TRANSMISSÃO</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_GOKU_CONFIRM">
+            <Text>CONFIRMAR</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_GOKU_TOOLTIP">
+            <Text>Escolha um lote terrestre vazio que esteja atualmente visível e sem névoa. O teletransporte pode ser utilizado uma vez por turno e encerra as ações de Goku.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_TELEPORT_CHOOSE_DESTINATION">
+            <Text>Passe o cursor sobre o destino e clique para fixá-lo. Verde indica um lote válido; clique direito ou pressione ESC para cancelar.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_TELEPORT_HOVER_READY">
+            <Text>Destino válido em X {1_Num}, Y {2_Num}. Clique no lote para fixar essas coordenadas.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_TELEPORT_DESTINATION_READY">
+            <Text>Destino válido: X {1_Num} | Y {2_Num}. Confirme para se teletransportar.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_TELEPORT_SUCCESS">
+            <Text>Transmissão Instantânea concluída em X {1_Num}, Y {2_Num}.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_TELEPORT_NO_PLOT">
+            <Text>Passe o cursor sobre um lote do mapa para escolher o destino.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_TELEPORT_FOG">
+            <Text>O destino precisa estar totalmente visível, sem névoa de guerra.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_TELEPORT_SAME_PLOT">
+            <Text>Goku já está neste lote.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_TELEPORT_BAD_TERRAIN">
+            <Text>O destino deve ser um terreno terrestre transitável.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_TELEPORT_OCCUPIED">
+            <Text>O destino precisa estar vazio para evitar empilhamento inválido de unidades.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_TELEPORT_FOREIGN_CITY">
+            <Text>Não é possível aparecer diretamente dentro de uma cidade estrangeira.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_VEGETA_NAME">
+            <Text>Final Explosion</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_VEGETA_BUTTON">
+            <Text>FINAL EXPLOSION</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_VEGETA_TOOLTIP">
+            <Text>Sacrifica 2/3 dos PV atuais de Vegeta e causa o dobro desse valor, até 100 de dano, a todas as unidades inimigas adjacentes. Recebe 2 XP por alvo atingido, até 10 XP. Afeta somente jogadores em guerra e encerra as ações do turno.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_FINAL_EXPLOSION_PREVIEW">
+            <Text>Custo: {1_Num} PV | Dano: {2_Num} | Alvos: {3_Num} | XP: {4_Num}</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_FINAL_EXPLOSION_SUCCESS">
+            <Text>Final Explosion! Vegeta sacrificou {1_Num} PV, causou {2_Num} de dano a {3_Num} inimigos e recebeu {4_Num} XP.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_FINAL_EXPLOSION_LOW_HEALTH">
+            <Text>Vegeta precisa ter pelo menos 3 PV para sobreviver ao sacrifício.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_FINAL_EXPLOSION_NO_ENEMIES">
+            <Text>Não há unidades inimigas em guerra nos seis lotes adjacentes.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_CANCEL">
+            <Text>CANCELAR</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_CANCEL_TOOLTIP">
+            <Text>Cancela a seleção do destino sem consumir o poder ou os movimentos.</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_COMPACT_READY">
+            <Text>PRONTO</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_COMPACT_LOCKED">
+            <Text>BLOQUEADO</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_COMPACT_SPENT">
+            <Text>SEM AÇÃO</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_COMPACT_UNAVAILABLE">
+            <Text>INDISPONÍVEL</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_COMPACT_NO_TARGETS">
+            <Text>SEM ALVOS</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_COMPACT_INVALID">
+            <Text>LOTE INVÁLIDO</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_COMPACT_CLICK_TILE">
+            <Text>CLIQUE NO LOTE</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_COMPACT_COORDINATES">
+            <Text>X {1_Num} | Y {2_Num}</Text>
+        </Row>
+        <Row Tag="TXT_KEY_SAYAJIN_POWER_COMPACT_TARGETS">
+            <Text>{1_Num} ALVOS | {2_Num} DMG</Text>
         </Row>
     </Language_en_US>
 </GameData>

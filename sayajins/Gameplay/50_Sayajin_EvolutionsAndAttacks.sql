@@ -54,6 +54,19 @@ VALUES  ('PROMOTION_SAYAJIN_TRANSCENDENT_AURA',
          1, 0, 56, 'PROMOTION_ATLAS', 'PEDIA_ATTRIBUTES', 'TXT_KEY_PROMOTION_SAYAJIN_FINAL_FORM',
          25, 25, 1, 1, 1, 1, 25);
 
+-- Active powers are technical marker promotions. Their effects are executed
+-- by the isolated power UI/service, never by native nuclear or paradrop
+-- missions, so they cannot leak fallout, diplomacy state or unlimited moves.
+INSERT INTO UnitPromotions
+        (Type, Description, Help, Sound, CannotBeChosen, LostWithUpgrade,
+         PortraitIndex, IconAtlas, PediaType, PediaEntry)
+VALUES  ('PROMOTION_SAYAJIN_INSTANT_TRANSMISSION',
+         'TXT_KEY_PROMOTION_SAYAJIN_INSTANT_TRANSMISSION', 'TXT_KEY_PROMOTION_SAYAJIN_INSTANT_TRANSMISSION_HELP', 'AS2D_IF_LEVELUP',
+         1, 0, 0, 'SAYAJIN_HERO_GOKU_ATLAS', 'PEDIA_ATTRIBUTES', 'TXT_KEY_PROMOTION_SAYAJIN_INSTANT_TRANSMISSION'),
+        ('PROMOTION_SAYAJIN_FINAL_EXPLOSION',
+         'TXT_KEY_PROMOTION_SAYAJIN_FINAL_EXPLOSION', 'TXT_KEY_PROMOTION_SAYAJIN_FINAL_EXPLOSION_HELP', 'AS2D_IF_LEVELUP',
+         1, 0, 0, 'SAYAJIN_HERO_VEGETA_ATLAS', 'PEDIA_ATTRIBUTES', 'TXT_KEY_PROMOTION_SAYAJIN_FINAL_EXPLOSION');
+
 -- Roles are normalized again after every form has been created. This also
 -- protects existing saves upgraded from versions where every hero had a
 -- ranged strength in the database.
@@ -118,3 +131,29 @@ FROM Units WHERE Type LIKE 'UNIT_SAYAJIN_HERO_%_POSTMODERN';
 INSERT INTO Unit_FreePromotions (UnitType, PromotionType)
 SELECT Type, 'PROMOTION_SAYAJIN_FINAL_FORM'
 FROM Units WHERE Type LIKE 'UNIT_SAYAJIN_HERO_%_FUTURE';
+
+-- Goku and Vegeta receive their active power from Super Saiyan onward. The
+-- Lua synchronization service repeats this normalization for existing saves.
+INSERT INTO Unit_FreePromotions (UnitType, PromotionType)
+SELECT Type, 'PROMOTION_SAYAJIN_INSTANT_TRANSMISSION'
+FROM Units
+WHERE Type IN (
+    'UNIT_SAYAJIN_HERO_GOKU_MEDIEVAL',
+    'UNIT_SAYAJIN_HERO_GOKU_RENAISSANCE',
+    'UNIT_SAYAJIN_HERO_GOKU_INDUSTRIAL',
+    'UNIT_SAYAJIN_HERO_GOKU_MODERN',
+    'UNIT_SAYAJIN_HERO_GOKU_POSTMODERN',
+    'UNIT_SAYAJIN_HERO_GOKU_FUTURE'
+);
+
+INSERT INTO Unit_FreePromotions (UnitType, PromotionType)
+SELECT Type, 'PROMOTION_SAYAJIN_FINAL_EXPLOSION'
+FROM Units
+WHERE Type IN (
+    'UNIT_SAYAJIN_HERO_VEGETA_MEDIEVAL',
+    'UNIT_SAYAJIN_HERO_VEGETA_RENAISSANCE',
+    'UNIT_SAYAJIN_HERO_VEGETA_INDUSTRIAL',
+    'UNIT_SAYAJIN_HERO_VEGETA_MODERN',
+    'UNIT_SAYAJIN_HERO_VEGETA_POSTMODERN',
+    'UNIT_SAYAJIN_HERO_VEGETA_FUTURE'
+);
